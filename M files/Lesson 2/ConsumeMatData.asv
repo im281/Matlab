@@ -1,0 +1,23 @@
+function ConsumeMatData(file)
+b = load(file);
+end
+
+
+
+
+%loading .mat file
+%b = load('C:\Users\Owner\Source\Repos\Matlab\M files\Lesson 2\hw2data.mat');
+
+%struct example
+%A = struct('a1',[1 2 3],'a2',[4 5 6]);
+
+%access values
+%A.a1
+%A.a2
+
+%example of string concatenation
+%s1 = 'Good';
+%s2 = 'morning';
+%s = strcat(s1,s2)
+
+

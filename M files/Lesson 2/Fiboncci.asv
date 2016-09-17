@@ -1,0 +1,6 @@
+function Fiboncci(a,b,n)
+for i = 1:n
+    c = a + b
+    d = b + c
+end
+end
