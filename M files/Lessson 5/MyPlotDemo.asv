@@ -1,0 +1,22 @@
+function [v] = MyPlotDemo(first,last,increment,der)
+v = [];
+while first < last
+    if(der == 0)
+    y = TestFunction(first);
+    elseif(der == 1)
+    y = TestFunction(first);
+    end
+    v = [v y];
+    first = first + increment;      
+end
+x = [first:increment:last];
+plot(x,v)
+end
+
+function [y] = TestFunction(x)
+y = x^2*cos(2*x) - exp(x) + x - 1.5;
+end
+
+function [y] = Derivative(x)
+y = x^2*sin(2*x) - exp(x) + x - 1.5;
+end
