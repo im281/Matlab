@@ -1,24 +1,25 @@
-function [a] = Gausselim(a)
-%Gauss elimination method [m,n)=size(a);
-[m,n]=size(a);
-for j=1:m-1
-    for z=2:m
-        if a(j,j)==0
-            t=a(j,:);a(j,:)=a(z,:);
-            a(z,:)=t;
+function x = Gausselim(A,b)
+n = length(b); x = zeros(n,1);
+for k=1:n-1 % forward elimination
+    for i=k+1:n
+        xmult = A(i,k)/A(k,k);
+        for j=k+1:n
+            A(i,j) = A(i,j)-xmult*A(k,j);
         end
-    end
-    for i=j+1:m
-        a(i,:)=a(i,:)-a(j,:)*(a(i,j)/a(j,j));
+        b(i) = b(i)-xmult*b(k);
     end
 end
-x=zeros(1,m);
-for s=m:-1:1
-    c=0;
-    for k=2:m
-        c=c+a(s,k)*x(k);
+% back substitution
+x(n) = b(n)/A(n,n);
+for i=n-1:-1:1
+    sum = b(i);
+    for j=i+1:n
+        sum = sum-A(i,j)*x(j);
     end
-    x(s)=(a(s,n)-c)/a(s,s);
+    x(i) = sum/A(i,i);
 end
-a;
-end
+
+
+
+
+
